@@ -9,19 +9,41 @@ class XylophoneApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         body: SafeArea(
-          child: Center(
-            child: FlatButton(
-              color: Colors.blue,
-              onPressed: () {
-                final player = AudioCache();
-                player.play('note1.wav');
-              },
-              child: Text(
-                "Note 1",
-                style: TextStyle(fontSize: 20.0),
-              ),
-            ),
+          child: Column(
+            children: <Widget>[
+              XylophoneButton(Colors.red, 1),
+              XylophoneButton(Colors.orange, 2),
+              XylophoneButton(Colors.yellow, 3),
+              XylophoneButton(Colors.lightGreen, 4),
+              XylophoneButton(Colors.green, 5),
+              XylophoneButton(Colors.blue, 6),
+              XylophoneButton(Colors.purple, 7),
+            ],
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class XylophoneButton extends StatelessWidget {
+  final MaterialColor color;
+  final int number;
+
+  const XylophoneButton(this.color, this.number);
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: FlatButton(
+        color: color,
+        onPressed: () {
+          final player = AudioCache();
+          player.play('note$number.wav');
+        },
+        child: Text(
+          "",
+          style: TextStyle(fontSize: 20.0),
         ),
       ),
     );
