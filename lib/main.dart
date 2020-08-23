@@ -14,8 +14,8 @@ class XylophoneApp extends StatelessWidget {
               XylophoneButton(Colors.red, 1),
               XylophoneButton(Colors.orange, 2),
               XylophoneButton(Colors.yellow, 3),
-              XylophoneButton(Colors.lightGreen, 4),
-              XylophoneButton(Colors.green, 5),
+              XylophoneButton(Colors.green, 4),
+              XylophoneButton(Colors.teal, 5),
               XylophoneButton(Colors.blue, 6),
               XylophoneButton(Colors.purple, 7),
             ],
@@ -28,9 +28,14 @@ class XylophoneApp extends StatelessWidget {
 
 class XylophoneButton extends StatelessWidget {
   final MaterialColor color;
-  final int number;
+  final int soundNumber;
 
-  const XylophoneButton(this.color, this.number);
+  const XylophoneButton(this.color, this.soundNumber);
+
+  void playSound() {
+    final player = AudioCache();
+    player.play('note$soundNumber.wav');
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -38,12 +43,10 @@ class XylophoneButton extends StatelessWidget {
       child: FlatButton(
         color: color,
         onPressed: () {
-          final player = AudioCache();
-          player.play('note$number.wav');
+          playSound();
         },
         child: Text(
           "",
-          style: TextStyle(fontSize: 20.0),
         ),
       ),
     );
