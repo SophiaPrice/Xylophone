@@ -10,22 +10,16 @@ class XylophoneApp extends StatelessWidget {
       home: Scaffold(
         backgroundColor: Colors.black,
         body: SafeArea(
-          child: Row(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: <Widget>[
-                    XylophoneButton(Colors.red, 1),
-                    XylophoneButton(Colors.orange, 2),
-                    XylophoneButton(Colors.yellow, 3),
-                    XylophoneButton(Colors.green, 4),
-                    XylophoneButton(Colors.teal, 5),
-                    XylophoneButton(Colors.blue, 6),
-                    XylophoneButton(Colors.purple, 7),
-                  ],
-                ),
-              ),
+              XylophoneButton(Colors.red, 1),
+              XylophoneButton(Colors.orange, 2),
+              XylophoneButton(Colors.yellow, 3),
+              XylophoneButton(Colors.green, 4),
+              XylophoneButton(Colors.teal, 5),
+              XylophoneButton(Colors.blue, 6),
+              XylophoneButton(Colors.purple, 7),
             ],
           ),
         ),
